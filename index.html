@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Infinity Coaching Centre — Admissions Open</title>
-  <meta name="description" content="Infinity Coaching Centre: Expert coaching for Class 6–12 (Science, Arts, Commerce). Conceptual clarity, doubt support & personal attention. Admissions open — limited seats." />
-  <!-- Tailwind Play CDN -->
+  <title>Infinity Coaching Centre — Expert Coaching for Class 6-12 | Admissions Open</title>
+  <meta name="description" content="Infinity Coaching Centre in Saintala: Expert coaching for Class 6–12 (Science, Arts, Commerce). Small batches, conceptual clarity, doubt support & personal attention. Admissions open — limited seats." />
+  <meta name="keywords" content="coaching centre, tuition, class 6-12, +2 science, arts, commerce, CBSE, ICSE, Saintala" />
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
+    * { scroll-behavior: smooth; }
     body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
 
-    /* Animations */
     @keyframes fade-in {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -21,159 +23,453 @@
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+    }
+
     .animate-fade-in { animation: fade-in 1s ease-out forwards; }
     .animate-slide-up { animation: slide-up 1s ease-out forwards; }
-    a{
-        display: flex;
-        margin: 3px;
-        font-weight: 600;
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    padding: 1rem;
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-size: 200% 200%;
+      animation: gradient-shift 15s ease infinite;
+    }
+    
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .feature-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .success-toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      transform: translateX(400px);
+      transition: transform 0.3s ease-out;
+      z-index: 100;
+    }
+    .success-toast.show {
+      transform: translateX(0);
+    }
+
+    /* Remove default link styling for nav */
+    nav a {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   </style>
 </head>
 <body class="bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-800">
+  
+  <!-- Success Toast -->
+  <div id="successToast" class="success-toast bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3">
+    <span class="text-2xl">✓</span>
+    <div>
+      <p class="font-semibold">Application Submitted!</p>
+      <p class="text-sm">We'll contact you within 24 hours.</p>
+    </div>
+  </div>
+
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white shadow-sm">
+  <header class="sticky top-0 z-50 glass-effect border-b border-gray-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold">∞</div>
+        <div class="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+          ∞
+        </div>
         <div>
-          <h1 class="text-xl md:text-2xl font-extrabold">Infinity Coaching Centre</h1>
-          <p class="text-sm text-gray-600">Where learning never ends… and success begins!</p>
+          <h1 class="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Infinity Coaching Centre
+          </h1>
+          <p class="text-xs md:text-sm text-gray-600">Where learning never ends… and success begins!</p>
         </div>
       </div>
+      
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex gap-6 items-center text-sm">
-        <a href="#courses" class="hover:text-indigo-600">Courses</a>
-        <a href="#why" class="hover:text-indigo-600">Why Infinity</a>
-        <a href="#admissions" class="hover:text-indigo-600">Admissions</a>
-        <a href="#contact" class="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow-sm hover:opacity-95">Contact</a>
+      <nav class="hidden md:flex gap-8 items-center text-sm" aria-label="Main navigation">
+        <a href="#courses" class="hover:text-indigo-600 transition">Courses</a>
+        <a href="#why" class="hover:text-indigo-600 transition">Why Infinity</a>
+        <a href="#admissions" class="hover:text-indigo-600 transition">Admissions</a>
+        <a href="#contact" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow-md hover:shadow-lg transition font-semibold">
+          Contact Us
+        </a>
       </nav>
+      
       <!-- Mobile Hamburger -->
-      <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+      <button id="menu-btn" class="md:hidden text-2xl p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Toggle menu">
+        ☰
+      </button>
     </div>
+    
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden flex-col bg-white shadow-md md:hidden px-6 pb-4">
-      <a href="#courses" class="py-2 border-b hover:text-indigo-600">Courses</a>
-      <a href="#why" class="py-2 border-b hover:text-indigo-600">Why Infinity</a>
-      <a href="#admissions" class="py-2 border-b hover:text-indigo-600">Admissions</a>
-      <a href="#contact" class="py-2 hover:text-indigo-600">Contact</a>
-    </div>
+    <nav id="mobile-menu" class="hidden flex-col bg-white shadow-md md:hidden px-6 pb-4" aria-label="Mobile navigation">
+      <a href="#courses" class="py-3 border-b hover:text-indigo-600 transition">Courses</a>
+      <a href="#why" class="py-3 border-b hover:text-indigo-600 transition">Why Infinity</a>
+      <a href="#admissions" class="py-3 border-b hover:text-indigo-600 transition">Admissions</a>
+      <a href="#contact" class="py-3 hover:text-indigo-600 transition">Contact</a>
+    </nav>
   </header>
 
   <main class="max-w-6xl mx-auto px-6">
+    
     <!-- Hero -->
-    <section class="grid md:grid-cols-2 gap-8 items-center py-12">
+    <section class="grid md:grid-cols-2 gap-12 items-center py-16">
       <div class="animate-slide-up">
-        <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">
-          Expert coaching for Class 6 to +2<br class="hidden sm:inline">— Science, Arts & Commerce
-        </h2>
-        <p class="mt-4 text-gray-600">Personal attention, concept-first teaching, and continuous doubt support — designed to build confidence and deliver results. Limited seats per batch.</p>
-        <div class="mt-6 flex gap-4">
-          <a href="#admissions" class="px-5 py-3 bg-indigo-600 text-white rounded-lg font-semibold shadow hover:scale-105 transition">Apply Now</a>
-          <a href="#contact" class="px-5 py-3 border border-gray-300 rounded-lg text-sm hover:bg-gray-100 transition">Visit Us</a>
+        <div class="inline-block px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold mb-4">
+          🎓 Admissions Open for 2025-26
         </div>
-        <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-700">
-          <li>📘 Class 6–10 (CBSE, ICSE, State boards)</li>
-          <li>🔬 +2 Science — Physics, Chemistry, Maths, Biology</li>
-          <li>📖 +2 Arts — History, Political Science, Education</li>
-          <li>💼 +2 Commerce — Accountancy, Business Studies</li>
-        </ul>
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Expert coaching for<br/>
+          <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Class 6 to +2
+          </span>
+        </h2>
+        <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+          Personal attention, concept-first teaching, and continuous doubt support — designed to build confidence and deliver results.
+        </p>
+        
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#admissions" class="px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition text-center">
+            Apply Now — Limited Seats
+          </a>
+          <a href="#contact" class="px-6 py-4 border-2 border-gray-300 rounded-xl text-sm font-semibold hover:bg-gray-50 hover:border-indigo-300 transition text-center">
+            Schedule a Visit
+          </a>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="mt-10 grid grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="stat-number">500+</div>
+            <p class="text-sm text-gray-600 mt-1">Students Taught</p>
+          </div>
+          <div class="text-center">
+            <div class="stat-number">8+</div>
+            <p class="text-sm text-gray-600 mt-1">Years Experience</p>
+          </div>
+          <div class="text-center">
+            <div class="stat-number">95%</div>
+            <p class="text-sm text-gray-600 mt-1">Success Rate</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition hover:scale-105 animate-fade-in">
-        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="students studying" class="w-full h-56 object-cover rounded-xl"/>
-        <div class="mt-5">
-          <h3 class="font-semibold">Admissions Open — Limited Seats</h3>
-          <p class="text-sm text-gray-600 mt-2">Join small batches for personalised attention. Flexible batch timings and weekend crash courses available.</p>
-          <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
-            <div class="p-3 rounded-lg bg-indigo-50 text-indigo-700">✅ Doubt Solving Support</div>
-            <div class="p-3 rounded-lg bg-green-50 text-green-700">✅ Experienced Faculty</div>
-            <div class="p-3 rounded-lg bg-yellow-50 text-yellow-700">✅ Result Oriented</div>
-            <div class="p-3 rounded-lg bg-pink-50 text-pink-700">✅ Personal Attention</div>
+      <div class="relative animate-fade-in">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
+        <div class="relative bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" 
+               alt="Students studying in classroom" 
+               class="w-full h-64 object-cover rounded-xl shadow-md"/>
+          
+          <div class="mt-6">
+            <h3 class="text-xl font-bold">Limited Seats Available</h3>
+            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+              Join small batches (max 15 students) for personalized attention. Flexible timings and weekend crash courses available.
+            </p>
+            
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              <div class="p-4 rounded-xl bg-gradient-to-br from-indigo-50 to-indigo-100 text-indigo-700 text-center">
+                <div class="text-2xl mb-1">✓</div>
+                <div class="text-sm font-semibold">Doubt Solving</div>
+              </div>
+              <div class="p-4 rounded-xl bg-gradient-to-br from-green-50 to-green-100 text-green-700 text-center">
+                <div class="text-2xl mb-1">✓</div>
+                <div class="text-sm font-semibold">Expert Faculty</div>
+              </div>
+              <div class="p-4 rounded-xl bg-gradient-to-br from-yellow-50 to-yellow-100 text-yellow-700 text-center">
+                <div class="text-2xl mb-1">✓</div>
+                <div class="text-sm font-semibold">Result Oriented</div>
+              </div>
+              <div class="p-4 rounded-xl bg-gradient-to-br from-pink-50 to-pink-100 text-pink-700 text-center">
+                <div class="text-2xl mb-1">✓</div>
+                <div class="text-sm font-semibold">Personal Care</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Why Infinity -->
-    <section id="why" class="py-8">
-      <h3 class="text-2xl font-bold">Why choose Infinity?</h3>
-      <div class="mt-6 grid md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl hover:scale-105 transition">
-          <h4 class="font-semibold">💡 Conceptual Clarity</h4>
-          <p class="text-sm text-gray-600 mt-2">Foundations-first lessons that make even tough topics simple and memorable.</p>
+    <!-- Subjects Offered -->
+    <section class="py-12 bg-gradient-to-r from-indigo-50 to-purple-50 -mx-6 px-6 rounded-3xl">
+      <h3 class="text-3xl font-bold text-center mb-10">Subjects We Teach</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-sm text-center hover:shadow-lg transition">
+          <div class="text-4xl mb-3">📘</div>
+          <h4 class="font-bold text-lg">Class 6–10</h4>
+          <p class="text-sm text-gray-600 mt-2">All subjects<br/>CBSE, ICSE, State Board</p>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl hover:scale-105 transition">
-          <h4 class="font-semibold">🙋 Doubt-Solving Support</h4>
-          <p class="text-sm text-gray-600 mt-2">Dedicated doubt sessions & one-on-one support to remove gaps quickly.</p>
+        <div class="bg-white p-6 rounded-xl shadow-sm text-center hover:shadow-lg transition">
+          <div class="text-4xl mb-3">🔬</div>
+          <h4 class="font-bold text-lg">+2 Science</h4>
+          <p class="text-sm text-gray-600 mt-2">Physics, Chemistry<br/>Maths, Biology</p>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl hover:scale-105 transition">
-          <h4 class="font-semibold">🎯 Personal Attention</h4>
-          <p class="text-sm text-gray-600 mt-2">Small batches and regular progress checks ensure no student is left behind.</p>
+        <div class="bg-white p-6 rounded-xl shadow-sm text-center hover:shadow-lg transition">
+          <div class="text-4xl mb-3">📖</div>
+          <h4 class="font-bold text-lg">+2 Arts</h4>
+          <p class="text-sm text-gray-600 mt-2">History, Pol. Science<br/>Education, More</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm text-center hover:shadow-lg transition">
+          <div class="text-4xl mb-3">💼</div>
+          <h4 class="font-bold text-lg">+2 Commerce</h4>
+          <p class="text-sm text-gray-600 mt-2">Accountancy<br/>Business Studies</p>
         </div>
       </div>
     </section>
 
-    <!-- Courses -->
-    <section id="courses" class="py-8">
-      <h3 class="text-2xl font-bold">Courses & Batches</h3>
-      <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 transition">
-          <h5 class="font-semibold">Class 6–8</h5>
-          <p class="text-sm text-gray-600 mt-2">Strong basics + regular tests.</p>
+    <!-- Why Infinity -->
+    <section id="why" class="py-16">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold">Why choose Infinity?</h3>
+        <p class="text-gray-600 mt-3 max-w-2xl mx-auto">We believe every student deserves quality education with personal attention</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="feature-card p-8 bg-white rounded-2xl shadow-md hover:shadow-2xl">
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-4">
+            💡
+          </div>
+          <h4 class="text-xl font-bold mb-3">Conceptual Clarity</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Foundations-first approach that makes even the toughest topics simple and memorable. We focus on understanding, not just memorization.
+          </p>
+        </article>
+
+        <article class="feature-card p-8 bg-white rounded-2xl shadow-md hover:shadow-2xl">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-4">
+            🙋
+          </div>
+          <h4 class="text-xl font-bold mb-3">Doubt-Solving Support</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Dedicated doubt sessions and one-on-one support ensure knowledge gaps are identified and resolved quickly.
+          </p>
+        </article>
+
+        <article class="feature-card p-8 bg-white rounded-2xl shadow-md hover:shadow-2xl">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-4">
+            🎯
+          </div>
+          <h4 class="text-xl font-bold mb-3">Personal Attention</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Small batches (max 15 students) and regular progress tracking ensure no student is left behind.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Courses & Batches -->
+    <section id="courses" class="py-16 bg-gradient-to-br from-gray-50 to-white -mx-6 px-6 rounded-3xl">
+      <h3 class="text-3xl font-bold text-center mb-10">Available Batches</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition border-t-4 border-blue-500">
+          <h5 class="text-lg font-bold mb-2">Class 6–8</h5>
+          <p class="text-sm text-gray-600 mb-4">Building strong fundamentals with regular assessments</p>
+          <ul class="text-xs space-y-2 text-gray-700">
+            <li>✓ All subjects covered</li>
+            <li>✓ Weekly tests</li>
+            <li>✓ Parent meetings</li>
+          </ul>
         </div>
-        <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 transition">
-          <h5 class="font-semibold">Class 9–10</h5>
-          <p class="text-sm text-gray-600 mt-2">Board-focused strategy and concept mastery.</p>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition border-t-4 border-green-500">
+          <h5 class="text-lg font-bold mb-2">Class 9–10</h5>
+          <p class="text-sm text-gray-600 mb-4">Board-focused strategy and concept mastery</p>
+          <ul class="text-xs space-y-2 text-gray-700">
+            <li>✓ Board exam prep</li>
+            <li>✓ Mock tests</li>
+            <li>✓ Chapter-wise notes</li>
+          </ul>
         </div>
-        <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 transition">
-          <h5 class="font-semibold">+2 Science</h5>
-          <p class="text-sm text-gray-600 mt-2">Physics, Chemistry, Maths, Biology — exam-ready coaching.</p>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition border-t-4 border-purple-500">
+          <h5 class="text-lg font-bold mb-2">+2 Science</h5>
+          <p class="text-sm text-gray-600 mb-4">Physics, Chemistry, Maths, Biology — exam-ready coaching</p>
+          <ul class="text-xs space-y-2 text-gray-700">
+            <li>✓ Subject experts</li>
+            <li>✓ Problem-solving focus</li>
+            <li>✓ Competitive prep</li>
+          </ul>
         </div>
-        <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 transition">
-          <h5 class="font-semibold">+2 Arts & Commerce</h5>
-          <p class="text-sm text-gray-600 mt-2">Subject experts for better marks and understanding.</p>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition border-t-4 border-orange-500">
+          <h5 class="text-lg font-bold mb-2">+2 Arts & Commerce</h5>
+          <p class="text-sm text-gray-600 mb-4">Expert teaching for better marks and deep understanding</p>
+          <ul class="text-xs space-y-2 text-gray-700">
+            <li>✓ Experienced faculty</li>
+            <li>✓ Answer writing skills</li>
+            <li>✓ Board exam strategy</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- Admissions Form -->
-    <section id="admissions" class="py-8">
-      <div class="bg-gradient-to-r from-indigo-50 to-white p-6 rounded-xl shadow-inner">
-        <h3 class="text-2xl font-bold">Register for Admissions</h3>
-        <p class="text-sm text-gray-600 mt-2">Fill the form and our team will contact you for batch options and fees.</p>
-        <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');" class="mt-4 grid sm:grid-cols-2 gap-3">
-          <input required class="p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Student name" />
-          <input required class="p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Parent / Guardian" />
-          <input required class="p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Phone number" />
-          <input class="p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Preferred class/stream (eg. +2 Science)" />
-          <textarea class="p-3 rounded-lg border sm:col-span-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Any message / query"></textarea>
-          <button class="sm:col-span-2 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:scale-105 transition">Submit Application</button>
+    <section id="admissions" class="py-16">
+      <div class="max-w-3xl mx-auto bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-8 md:p-12 rounded-3xl shadow-xl">
+        <div class="text-center mb-8">
+          <h3 class="text-3xl font-bold mb-3">Register for Admissions</h3>
+          <p class="text-gray-600">Fill the form and our team will contact you within 24 hours for batch options and fees</p>
+        </div>
+        
+        <form id="admissionForm" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <input required 
+                   type="text"
+                   name="studentName"
+                   class="p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition" 
+                   placeholder="Student name *" 
+                   aria-label="Student name"/>
+            <input required 
+                   type="text"
+                   name="guardianName"
+                   class="p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition" 
+                   placeholder="Parent / Guardian *" 
+                   aria-label="Parent or Guardian name"/>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-4">
+            <input required 
+                   type="tel"
+                   name="phone"
+                   pattern="[0-9]{10}"
+                   class="p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition" 
+                   placeholder="Phone number (10 digits) *" 
+                   aria-label="Phone number"/>
+            <select name="class"
+                    class="p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition"
+                    aria-label="Select class or stream">
+              <option value="">Select Class / Stream</option>
+              <option value="6-8">Class 6-8</option>
+              <option value="9-10">Class 9-10</option>
+              <option value="+2-science">+2 Science</option>
+              <option value="+2-arts">+2 Arts</option>
+              <option value="+2-commerce">+2 Commerce</option>
+            </select>
+          </div>
+          
+          <textarea name="message"
+                    rows="4"
+                    class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition" 
+                    placeholder="Any specific requirements or queries? (Optional)"
+                    aria-label="Additional message"></textarea>
+          
+          <button type="submit" 
+                  class="w-full px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition flex items-center justify-center gap-2">
+            <span>Submit Application</span>
+            <span>→</span>
+          </button>
+          
+          <p class="text-xs text-center text-gray-600 mt-4">
+            By submitting, you agree to be contacted by Infinity Coaching Centre
+          </p>
         </form>
       </div>
     </section>
 
     <!-- Location & Contact -->
-    <section id="contact" class="py-8">
-      <div class="bg-white p-6 rounded-xl shadow-sm grid md:grid-cols-2 gap-6">
-        <div>
-          <h4 class="font-semibold">Visit us</h4>
-          <p class="text-gray-700 mt-2">Block Chowk, SAINTALA</p>
-          <p class="text-gray-600 text-sm mt-3">Open: Mon–Sat • 9:00 AM – 7:00 PM</p>
-          <p class="text-gray-600 text-sm mt-1">Phone: +91 9337915041</p>
-          <p class="text-gray-600 text-sm mt-1">Mail: patraajitkumar470@gmail.com</p>
-        </div>
-        <div>
-          <h4 class="font-semibold">Quick questions?</h4>
-          <p class="text-sm text-gray-600 mt-2">Call or message on WhatsApp — we’re happy to help you pick the right batch.</p>
-          <div class="mt-4 flex gap-3">
-            <a href="tel:+919337915041" class="inline-block px-4 py-2 border rounded-lg hover:bg-indigo-50 transition">📞 Call</a>
-            <a href="https://wa.me/919337915041?text=Hello%20Infinity%20Coaching%20Centre%2C%20I%20want%20to%20know%20about%20admissions." 
-               target="_blank" 
-               class="inline-block px-4 py-2 border rounded-lg hover:bg-green-50 transition">💬 WhatsApp</a>
+    <section id="contact" class="py-16">
+      <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h4 class="text-2xl font-bold mb-6">Visit Our Centre</h4>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 flex-shrink-0">
+                  📍
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Address</p>
+                  <p class="text-gray-600 mt-1">Block Chowk, SAINTALA<br/>Balangir District, Odisha</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 flex-shrink-0">
+                  ⏰
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Timings</p>
+                  <p class="text-gray-600 mt-1">Monday – Saturday<br/>9:00 AM – 7:00 PM</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                  📞
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Contact</p>
+                  <p class="text-gray-600 mt-1">
+                    Phone: <a href="tel:+919337915041" class="text-indigo-600 hover:underline">+91 9337915041</a><br/>
+                    Email: <span id="emailText" class="text-indigo-600">patraajitkumar470@gmail.com</span>
+                    <button onclick="copyEmail()" class="ml-2 text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-200 transition" title="Copy email">📋 Copy</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="text-2xl font-bold mb-6">Get in Touch</h4>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Have questions about batches, fees, or course details? We're here to help! Call or message us on WhatsApp for instant support.
+            </p>
+            
+            <div class="space-y-3">
+              <a href="tel:+919337915041" 
+                 class="flex items-center justify-center gap-3 px-6 py-4 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">
+                <span class="text-2xl">📞</span>
+                <span>Call Now</span>
+              </a>
+              
+              <a href="https://wa.me/919337915041?text=Hello%20Infinity%20Coaching%20Centre%2C%20I%20want%20to%20know%20about%20admissions." 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition shadow-lg hover:shadow-xl">
+                <span class="text-2xl">💬</span>
+                <span>WhatsApp Us</span>
+              </a>
+              
+              <a href="mailto:patraajitkumar470@gmail.com" 
+                 onclick="return openEmail(event)"
+                 class="flex items-center justify-center gap-3 px-6 py-4 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition">
+                <span class="text-2xl">✉️</span>
+                <span>Send Email</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -181,19 +477,128 @@
   </main>
 
   <!-- Footer -->
-  <footer class="mt-12 py-8 border-t bg-white">
-    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-600">
-      © <span id="year"></span> Infinity Coaching Centre — All Rights Reserved
+  <footer class="mt-16 py-8 border-t bg-gradient-to-r from-gray-50 to-gray-100">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+          ∞
+        </div>
+        <span class="font-bold text-lg">Infinity Coaching Centre</span>
+      </div>
+      <p class="text-sm text-gray-600 mb-2">
+        Empowering students to achieve their academic dreams
+      </p>
+      <p class="text-xs text-gray-500">
+        © <span id="year"></span> Infinity Coaching Centre, Saintala — All Rights Reserved
+      </p>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script>
+    // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Copy email function
+    function copyEmail() {
+      const email = 'patraajitkumar470@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const btn = event.target;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✓ Copied!';
+        btn.classList.add('bg-green-100', 'text-green-700');
+        btn.classList.remove('bg-indigo-100', 'text-indigo-700');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('bg-green-100', 'text-green-700');
+          btn.classList.add('bg-indigo-100', 'text-indigo-700');
+        }, 2000);
+      });
+    }
+    
+    // Open email with fallback
+    function openEmail(e) {
+      const email = 'patraajitkumar470@gmail.com';
+      
+      // Try to open mailto
+      try {
+        window.location.href = `mailto:${email}`;
+      } catch (err) {
+        // If it fails, copy email and show message
+        e.preventDefault();
+        navigator.clipboard.writeText(email).then(() => {
+          alert(`Email address copied: ${email}\n\nPlease paste it in your email app.`);
+        });
+      }
+      
+      return false;
+    }
+    
+    // Mobile menu toggle
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Form submission with toast notification
+    const form = document.getElementById('admissionForm');
+    const successToast = document.getElementById('successToast');
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Here you would typically send data to a server
+      console.log('Form submitted:', data);
+      
+      // Show success toast
+      successToast.classList.add('show');
+      
+      // Reset form
+      form.reset();
+      
+      // Hide toast after 4 seconds
+      setTimeout(() => {
+        successToast.classList.remove('show');
+      }, 4000);
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Add scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all feature cards and sections
+    document.querySelectorAll('.feature-card, article').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(el);
     });
   </script>
 </body>
